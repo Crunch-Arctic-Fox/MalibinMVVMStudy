@@ -1,8 +1,6 @@
-## [Week2] ListAdapter, DiffUtil과 ActivityResultsContracts
+# [Week2] ListAdapter, DiffUtil과 ActivityResultsContracts
 
-> MVVM 무작정 따라하기 스터디
-
-
+<br/>
 
 ## 0. `@tools:sample/*` Resourse
 
@@ -51,6 +49,8 @@ class Adapter: RecyclerView.Adapter<ViewHolder>(){
 
 - 비교할 item마다 diffutil을 일일이 생성해 줘야 함(보일러 플레이팅 코드 증가)
 - 복잡한 리스트를 갱신 할 경우, 수동으로 처리해 줘야 하는 경우가 있음
+
+<br/>
 
 ### 2-3 사용방법
 
@@ -116,6 +116,8 @@ binding.listDiaries.adapter = DiaryAdapter{onMemoClick(it)}  // convention
 ```
 
 
+<br/><br/>
+
 
 ### 📝 ListAdapter를 상속받은 RecyclerView
 
@@ -129,11 +131,9 @@ ListAdpater에는 AsyncDiffer가 내장되어 있어서, DiffUtil의 비교 연�
 
 - ListAdapter의 Property로 mutableList가 정의되어있다. 따라서 ListAdpater를 상속받은 RecyclerView를 사용할 때는, mutableList를 개발자가 직접 정의해주지 않아도 된다.
 - ListAdapter에는 submitList라는 메소드가 있는데, 이친구도 asyncDiffer에 기반하여 작동하기에 비동기적으로 처리된다.
-- ![image-20220310174602820](C:\Users\Kim Hyo Rim\AppData\Roaming\Typora\typora-user-images\image-20220310174602820.png)
-
+![image](https://user-images.githubusercontent.com/59546818/157931879-071ce44d-d96d-4f4c-8e9a-deb9331a37b4.png)
 - submitList를 Runnable 객체와 함께 사용하는 경우에는, 아래와 같이 사용할 수 있다
-
-  ![image-20220310174652137](C:\Users\Kim Hyo Rim\AppData\Roaming\Typora\typora-user-images\image-20220310174652137.png)
+![image](https://user-images.githubusercontent.com/59546818/157931936-6bc3dfe5-884b-47b5-a0a7-221d92e94d35.png)
 
 
 
